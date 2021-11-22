@@ -38,8 +38,38 @@ function renderindex(contactLists) {
 }
 
 function cleanUpView() {
-    let view  = document.querySelector('.main')
-    view.innerHTML = ''
+    var div = document.querySelector("div");
+    var first = div.firstElementChild;
+    while (first) {
+        first.remove();
+        first = div.firstElementChild;
+    }
+}
+
+function createSingleView(contactList){
+	let main = `<div class="main">
+	<div class="contactinfo">
+		<div class="contactname">
+			${contactList.name}
+			<img src="./img/profile.jpg" class="profilepic" alt="Profile picture">
+		</div>
+		<div class="contactemail">${contactList.email}</div>
+		<div class="contactphone">${contactList.phone}</div>
+		<div class="contactaddress">${contactList.address}</div>
+		<div class="buttons">
+			<button class="button edit" value="Edit">Edit</button>
+			<button class="button close" value="Close">Close</button>
+		</div>
+	</div>
+</div>`
+return main
+}
+
+function renderView(Lists) {
+	let viewmain = document.querySelector('.main')
+	for (x in Lists) {
+        viewmain.insertAdjacentHTML('beforeend', createSingleView(Lists[x]))
+    }
 }
 
 
