@@ -10,7 +10,14 @@ const contactList = [ 
 		phone: "123-555-5555",    
 		address: "Portland Oregon",    
 		email: "greenlantern@watchtower.com",  
-	}
+	},
+	{ 
+		name: "Bob Jones", 
+		phone: "778-111-1982", 
+		address: "Somewhere St, Vancouver, Canada",    
+		email: "bobbyjones@example.com",  
+	}, 
+
 ]
 
 
@@ -67,9 +74,7 @@ return main
 
 function renderView(Lists) {
 	let viewmain = document.querySelector('.main')
-	for (x in Lists) {
-        viewmain.insertAdjacentHTML('beforeend', createSingleView(Lists[x]))
-    }
+    viewmain.insertAdjacentHTML('beforeend', createSingleView(Lists[0]))
 }
 
 function cleanUpCreate(){
